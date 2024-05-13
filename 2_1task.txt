@@ -1,0 +1,15 @@
+#Создание тома для сохранения данных в докере
+docker volume create --name vol_1
+
+#Просмотр всех томов
+docker volume ls
+
+#Запуск контейнера
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5400:5432 -v vol_1:/var/lib/postgresql/data postgres
+
+#Просмотр всех контейнеров
+docker container ls
+
+#Остановка контейнера
+docker container stop pg-docker
+
